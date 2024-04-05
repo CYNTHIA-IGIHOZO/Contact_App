@@ -44,29 +44,5 @@ app.listen(PORT, () => {
 // Serve API documentation using Swagger
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.use("/",(req, res) =>
+  res.send("server is running"));
