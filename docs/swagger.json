@@ -1,0 +1,237 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Contact-app",
+    "description": "This is the contact app swagger",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8080",
+  "basePath": "",
+  "schemes": ["http", "https"],
+  "paths": {
+    "/Contact/create": {
+      "post": {
+        "summary": "Create a new contact",
+        "description": "Create a new contact",
+        "tags": ["Contact"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            },
+            "required": true,
+            "description": "Contact object"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Contact created"
+          }
+        }
+      }
+    },
+    "/Contact/all": {
+      "get": {
+        "summary": "Get all contacts",
+        "description": "Get all contacts",
+        "tags": ["Contact"],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/Contact/{id}": {
+      "put": {
+        "summary": "Update a contact by ID",
+        "description": "Update a contact by ID",
+        "tags": ["Contact"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the contact to update",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Contact"
+            },
+            "required": true,
+            "description": "Updated contact object"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Contact updated"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        }
+      },
+
+      "delete": {
+        "summary": "Delete a contact by ID",
+        "description": "Delete a contact by ID",
+        "tags": ["Contact"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the contact to delete",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Contact deleted"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get a contact by ID",
+        "description": "Get a contact by ID",
+        "tags": ["Contact"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of the contact to retrieve",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        }
+      }
+    },
+    "/Contact/phone/{phone}": {
+      "get": {
+        "summary": "Get a contact by phone",
+        "description": "Get a contact by phone",
+        "tags": ["Contact"],
+        "parameters": [
+          {
+            "name": "phone",
+            "in": "path",
+            "description": "Phone number of the contact to retrieve",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        }
+      }
+    },
+    "/Contact/fname/{firstName}": {
+      "get": {
+        "summary": "Get a contact by first name",
+        "description": "Get a contact by first name",
+        "tags": ["Contact"],
+        "parameters": [
+          {
+            "name": "firstName",
+            "in": "path",
+            "description": "First name of the contact to retrieve",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        }
+      }
+    },
+    "/Contact/lname/{lastName}": {
+      "get": {
+        "summary": "Get a contact by last name",
+        "description": "Get a contact by last name",
+        "tags": ["Contact"],
+        "parameters": [
+          {
+            "name": "lastName",
+            "in": "path",
+            "description": "Last name of the contact to retrieve",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Contact not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Contact": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "workPhone": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "profilePicture": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "phone",
+        "workPhone",
+        "address"
+      ]
+    }
+  }
+}
