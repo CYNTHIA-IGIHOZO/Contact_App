@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./docs/swagger.json');
-const cors = require("cors");
+//const cors = require("cors");
 const contactRoutes = require("./routes/contact.routes.js");
 const app = express();
 
@@ -42,7 +42,7 @@ app.listen(PORT, () => {
 
 
 // Serve API documentation using Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use('/api-doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use("/",(req, res) =>
   res.send("server is running"));
